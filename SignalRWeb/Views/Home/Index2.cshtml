@@ -95,10 +95,17 @@
                     })
                 })
             })
-
+            connection.on("ReceiveProduct",(product)=>{
+                console.log(product);
+            })
             //clicks
             $("#btnsave").click(()=>{ 
                 connection.invoke("SendName",$("#txtname").val()).catch((err)=>{console.log(err)})
+            })
+
+            $("#btnproduct").click(()=>{
+                let product = {"ProductID":1,"Name":"Kalem","Price":100,"Stock":200};
+                connection.invoke("SendProduct",product).catch((err)=>{console.log(err)})
             })
 
             //on method
@@ -137,6 +144,7 @@
         <hr />
         <button class="btn btn-outline-success" id="btnsave">Kaydet</button>
         <button class="btn btn-outline-warning" id="btnNameTeam">İsim Kaydet</button>
+        <button class="btn btn-outline-danger" id="btnproduct">Ürün Gönder</button>
         <div class="alert alert-success">
             <div class="float-left">
                 Bağlantı Durumu:<strong id="conStatus"></strong>

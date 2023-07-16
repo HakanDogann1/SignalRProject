@@ -37,7 +37,10 @@ namespace SignalRApi.Hubs
         {
             await Clients.All.SendAsync("ReceiveNames", Names);
         }
-
+        public async Task SendProduct(Product p)
+        {
+            await Clients.All.SendAsync("ReceiveProduct", p);
+        }
         public async override Task OnConnectedAsync()
         {
             ClientCount++;

@@ -12,5 +12,6 @@ namespace SignalRApi.Models
 
         public DbSet<Team> Teams { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Product> Product { get; set; }
     }
 }
